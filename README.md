@@ -10,7 +10,7 @@ Use responsibly and ethically.
 screen control 
 <img width="1118" height="757" alt="image" src="https://github.com/user-attachments/assets/fe3ed893-83bc-405a-93f8-467ad7c4d9c8" />
 
-sell control:
+shell control:
 <img width="1125" height="806" alt="image" src="https://github.com/user-attachments/assets/e508da8e-8706-44a1-b125-3071ae734af8" />
 
 camera control 
