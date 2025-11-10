@@ -1,0 +1,73 @@
+@startuml
+title Remote Client GUI - UML Class Diagram
+
+package "UI Layer" {
+    class ScreenClientApp {
+        - root
+        - connected_ip
+        - screen_socket
+        - shell_socket
+        - camera_socket
+        - screen_running
+        - shell_running
+        - camera_running
+        - screen_thread
+        - camera_thread
+        - stream_visible
+        - show_camera
+        - history
+        - history_index
+
+        + run()
+        + close_app()
+        + build_ui()
+        + remember_ip()
+        + require_ip()
+        + connect_screen()
+        + disconnect_screen()
+        + toggle_stream()
+        + receive_frames()
+        + connect_shell()
+        + disconnect_shell()
+        + send_command()
+        + clear_output()
+        + prev_command(event)
+        + next_command(event)
+        + connect_camera()
+        + disconnect_camera()
+        + toggle_camera()
+        + recv_exact(sock, size)
+        + run_command_enter(event)
+    }
+}
+
+package "Network Modules" {
+    class socket
+    class struct
+    class threading
+}
+
+package "UI Framework" {
+    class customtkinter
+    class CTk
+    class CTkImage
+    class tkinter.messagebox
+}
+
+package "Image Processing" {
+    class PIL
+    class Image
+    class io
+}
+
+' === Relations ===
+ScreenClientApp --> socket : שימוש ב־TCP
+ScreenClientApp --> struct : קידוד/פענוח bytes
+ScreenClientApp --> threading : ניהול threads
+ScreenClientApp --> customtkinter : בניית GUI
+ScreenClientApp --> CTkImage : הצגת תמונה
+ScreenClientApp --> PIL : פתיחת תמונה
+ScreenClientApp --> io : המרת bytes לתמונה
+ScreenClientApp --> tkinter.messagebox : הודעות שגיאה/מידע
+
+@enduml
